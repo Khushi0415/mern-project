@@ -1,6 +1,7 @@
 import {useEffect,useState} from "react"
 import API from "../api"
 import {useNavigate} from "react-router-dom"
+import "../App.css"
 
 function Dashboard(){
 
@@ -17,20 +18,25 @@ API.get("/dashboard")
 const logout=()=>{
 
 localStorage.removeItem("token")
-
 navigate("/login")
 
 }
 
 return(
 
-<div>
+<div className="container">
 
 <h2>Dashboard</h2>
 
-<p>Name: {user.name}</p>
-<p>Email: {user.email}</p>
-<p>Course: {user.course}</p>
+<div className="card">
+
+<p><b>Name:</b> {user.name}</p>
+<p><b>Email:</b> {user.email}</p>
+<p><b>Course:</b> {user.course}</p>
+
+</div>
+
+<div className="btn-group">
 
 <button onClick={()=>navigate("/update-password")}>
 Update Password
@@ -40,7 +46,11 @@ Update Password
 Update Course
 </button>
 
-<button onClick={logout}>Logout</button>
+<button className="logout" onClick={logout}>
+Logout
+</button>
+
+</div>
 
 </div>
 

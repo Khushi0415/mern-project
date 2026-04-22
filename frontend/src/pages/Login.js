@@ -1,6 +1,7 @@
 import {useState} from "react"
 import API from "../api"
 import {useNavigate} from "react-router-dom"
+import "../App.css"
 
 function Login(){
 
@@ -24,17 +25,24 @@ const submit = async(e)=>{
 
 return(
 
-<div>
+<div className="container">
 
 <h2>Login</h2>
 
 <form onSubmit={submit}>
 
-<input placeholder="Email" onChange={(e)=>setEmail(e.target.value)} />
+<input
+placeholder="Email"
+onChange={(e)=>setEmail(e.target.value)}
+/>
 
-<input placeholder="Password" type="password" onChange={(e)=>setPassword(e.target.value)} />
+<input
+type="password"
+placeholder="Password"
+onChange={(e)=>setPassword(e.target.value)}
+/>
 
-<button>Login</button>
+<button type="submit">Login</button>
 
 </form>
 
